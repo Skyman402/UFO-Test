@@ -3,21 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+public static class SceneLoader
+{ 
+    public static void LoadScene()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void LoadScene(int buildindex )
-    {
-        SceneManager.LoadScene(buildindex);
+        SceneManager.LoadScene(0);
     }
 }
