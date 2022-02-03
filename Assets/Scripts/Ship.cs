@@ -6,10 +6,11 @@ public class Ship : MonoBehaviour
 {
     public Rigidbody shipmove;
     public float force = 1;
-
+    public SceneLoader sceneLoader;
     void Start()
     {
         shipmove = GetComponent<Rigidbody>();
+        sceneLoader = FindObjectOfType<SceneLoader>();
     }
     void Update()
     {
@@ -30,9 +31,18 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            SceneLoader.LoadScene();
+            sceneLoader.RestartScene();
         }
         if (collision.gameObject.tag == "Friend")
-        { }
+        { 
+            sceneLoader.NextScene();
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            sceneLoader.RestartScene();
+        }
     }
 }
