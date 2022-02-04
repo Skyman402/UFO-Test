@@ -7,10 +7,13 @@ public class Ship : MonoBehaviour
     public Rigidbody shipmove;
     public float force = 1;
     public SceneLoader sceneLoader;
+    private AudioSource sound;
+
     void Start()
     {
         shipmove = GetComponent<Rigidbody>();
         sceneLoader = FindObjectOfType<SceneLoader>();
+        sound = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -36,6 +39,10 @@ public class Ship : MonoBehaviour
         if (collision.gameObject.tag == "Friend")
         { 
             sceneLoader.NextScene();
+        }
+        if(collision.gameObject.CompareTag("Enemy")) 
+        {
+            sound.Play();
         }
     }
     private void OnTriggerEnter(Collider other)
