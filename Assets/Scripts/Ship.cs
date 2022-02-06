@@ -1,19 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
-    public Rigidbody shipmove;
-    public float force = 1;
+    [SerializeField] private float force = 1;
+    
+    private Rigidbody shipmove;
     private AudioSource sound;
 
-    void Start()
+    private void Start()
     {
         shipmove = GetComponent<Rigidbody>();
         sound = GetComponent<AudioSource>();
     }
-    void Update()
+    
+    private void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -28,6 +29,7 @@ public class Ship : MonoBehaviour
             shipmove.AddRelativeForce(force * Vector3.right);
         }
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -40,6 +42,7 @@ public class Ship : MonoBehaviour
         }
        
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
@@ -47,6 +50,7 @@ public class Ship : MonoBehaviour
             SceneLoader.RestartScene();
         }
     }
+
     private IEnumerator DelayRestart()
     {
         sound.PlayOneShot(sound.clip);
