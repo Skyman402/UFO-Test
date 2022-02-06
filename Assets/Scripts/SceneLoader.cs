@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader:MonoBehaviour
+ public static class SceneLoader
 { 
-    public void LoadScene(int buildindex)
+    public static void NextScene()
     {
-        SceneManager.LoadScene(0);
-    }
-    public void NextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        if(SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+           var screen = Resources.Load("VictoryScreen");
+           Object.Instantiate(screen);
+        }
     }
 
-    public void RestartScene()
+    public static void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

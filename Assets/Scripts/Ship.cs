@@ -6,20 +6,18 @@ public class Ship : MonoBehaviour
 {
     public Rigidbody shipmove;
     public float force = 1;
-    public SceneLoader sceneLoader;
     private AudioSource sound;
 
     void Start()
     {
         shipmove = GetComponent<Rigidbody>();
-        sceneLoader = FindObjectOfType<SceneLoader>();
         sound = GetComponent<AudioSource>();
     }
     void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            shipmove.AddRelativeForce(force*Vector3.up);
+            shipmove.AddRelativeForce(force * Vector3.up);
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -34,22 +32,25 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            sceneLoader.RestartScene();
+            StartCoroutine(DelayRestart());
         }
         if (collision.gameObject.tag == "Friend")
-        { 
-            sceneLoader.NextScene();
-        }
-        if(collision.gameObject.CompareTag("Enemy")) 
         {
-            sound.Play();
+            SceneLoader.NextScene();
         }
+       
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
-            sceneLoader.RestartScene();
+            SceneLoader.RestartScene();
         }
+    }
+    private IEnumerator DelayRestart()
+    {
+        sound.PlayOneShot(sound.clip);
+        yield return new WaitForSeconds(1);
+        SceneLoader.RestartScene();
     }
 }

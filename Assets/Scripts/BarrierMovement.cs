@@ -4,23 +4,24 @@ using UnityEngine;
 
 public class BarrierMovement : MonoBehaviour
 {
-    public Transform[] points;
-    public Transform obj;
-    public float speed;
-    public bool cycle;
+    
+    [SerializeField] private Transform[] points;
+    [SerializeField] private Transform obj;
+    [SerializeField] private float speed;
+    [SerializeField] private bool cycle;
 
     private Transform targetPoint;
     private int currentPoint;
     private bool forward;
 
-    void Start()
+    private void Start()
     {
         forward = true;
         currentPoint = 0;
         targetPoint = points[currentPoint];
     }
 
-    void Update()
+    private void Update()
     {
         if (obj.position == targetPoint.position)
         {
