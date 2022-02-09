@@ -622,7 +622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc722801baa4af4db7091966ab637f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipmove: {fileID: 0}
   force: 1
 --- !u!1001 &1920955842
 PrefabInstance:
@@ -868,17 +867,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Earth
       objectReference: {fileID: 0}
-    - target: {fileID: 1384414363873114258, guid: 5ae6aa01a67d30d489dea3a97f379cf7, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 1384414363873114286, guid: 5ae6aa01a67d30d489dea3a97f379cf7, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1384414363873114286, guid: 5ae6aa01a67d30d489dea3a97f379cf7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 83.350006
       objectReference: {fileID: 0}
     - target: {fileID: 1384414363873114286, guid: 5ae6aa01a67d30d489dea3a97f379cf7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1072,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4327787480749246857, guid: 66db1aca941170c459fe482de35b41b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.7
+      value: -31.8
       objectReference: {fileID: 0}
     - target: {fileID: 4327787480749246857, guid: 66db1aca941170c459fe482de35b41b0, type: 3}
       propertyPath: m_LocalPosition.y
