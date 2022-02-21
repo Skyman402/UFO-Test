@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
         if(SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameData.PointsCount = 0;
         }
         else
         {
@@ -19,5 +20,6 @@ using UnityEngine.SceneManagement;
     public static void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameData.PointsCount = 0;
     }
 }

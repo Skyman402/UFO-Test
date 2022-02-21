@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3370933256423328099}
   - component: {fileID: 4782676704726543841}
   - component: {fileID: 4627126129417591726}
-  - component: {fileID: 2228934098205897393}
+  - component: {fileID: 3999086412410714178}
   m_Layer: 0
   m_Name: StartingPoint
   m_TagString: Friend
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2228934098205897393
+--- !u!65 &3999086412410714178
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

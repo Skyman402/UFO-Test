@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Friend
   - Enemy
+  - Point
   layers:
   - Default
   - TransparentFX
